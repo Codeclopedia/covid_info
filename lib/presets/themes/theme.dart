@@ -5,10 +5,11 @@ import 'package:get/get.dart';
 
 class Themes extends GetxController {
   Rx<ThemeData> darktheme = ThemeData(
-          backgroundColor: const Color.fromARGB(251, 20, 20, 20),
-          scaffoldBackgroundColor: const Color.fromARGB(251, 20, 20, 20),
+          backgroundColor: Color.fromARGB(248, 24, 16, 39),
+          scaffoldBackgroundColor: Color.fromARGB(248, 24, 16, 39),
           colorScheme: const ColorScheme.dark(),
-          primaryColor: Colors.black,
+          accentColor: Colors.white,
+          primaryColor: Color.fromARGB(248, 24, 16, 39),
           indicatorColor: Color.fromARGB(255, 255, 255, 255),
           iconTheme: IconThemeData(color: Color.fromARGB(255, 185, 45, 3)),
           appBarTheme: AppBarTheme(

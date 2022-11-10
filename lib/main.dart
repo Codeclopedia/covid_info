@@ -20,14 +20,12 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    themes.setthemetolight();
-    print(themes.currentheme);
     return Obx(() => GetMaterialApp(
           title: 'Flutter Demo',
           theme: themes.lighttheme.value,
           darkTheme: themes.darktheme.value,
           themeMode: themes.currentheme.value,
-          home: IntroductionScreen(),
+          home: const IntroductionScreen(),
           debugShowCheckedModeBanner: false,
         ));
   }

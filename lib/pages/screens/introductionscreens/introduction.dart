@@ -160,7 +160,10 @@ class _IntroductionScreenState extends State<IntroductionScreen> {
                             child: Text(
                               "Get started",
                               style: TextStyle(
-                                  color: Theme.of(context).primaryColor,
+                                  color: Theme.of(context).brightness ==
+                                          Brightness.dark
+                                      ? Colors.white
+                                      : Colors.black,
                                   fontSize:
                                       MediaQuery.of(context).size.width * 0.05,
                                   fontWeight: FontWeight.bold),

@@ -47,7 +47,29 @@ class Homepage extends StatelessWidget {
                       Pageline(),
                       CovidTestTab(),
                       Facilities(),
-                      TrainingVideos()
+                      TrainingVideos(),
+                      Padding(
+                        padding: EdgeInsets.symmetric(
+                            horizontal:
+                                MediaQuery.of(context).size.width * 0.07),
+                        child: Container(
+                          height: MediaQuery.of(context).size.height * 0.6,
+                          width: double.infinity,
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              const Text(
+                                "Coronovirus Map",
+                                style: TextStyle(fontWeight: FontWeight.bold),
+                              ),
+                              const Text(
+                                "Today's Statistics",
+                                style: TextStyle(fontWeight: FontWeight.bold),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
                     ],
                   ),
                 ),

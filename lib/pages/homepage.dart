@@ -33,8 +33,32 @@ class Homepage extends StatelessWidget {
               shrinkWrap: true,
               physics: const AlwaysScrollableScrollPhysics(),
               children: [
-                SizedBox(
+                Container(
                   height: MediaQuery.of(context).size.height * 0.4,
+                  alignment: Alignment.topCenter,
+                  child: Padding(
+                    padding: EdgeInsets.symmetric(
+                        horizontal: MediaQuery.of(context).size.width * 0.03),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Icon(
+                          Icons.menu,
+                          color: Colors.white,
+                          size: MediaQuery.of(context).size.width * 0.08,
+                        ),
+                        Image.asset(
+                          "assets/images/logo.png",
+                          scale: MediaQuery.of(context).size.width * 0.004,
+                        ),
+                        Icon(
+                          Icons.help,
+                          color: Colors.white,
+                          size: MediaQuery.of(context).size.width * 0.07,
+                        ),
+                      ],
+                    ),
+                  ),
                 ),
                 Container(
                   width: double.infinity,

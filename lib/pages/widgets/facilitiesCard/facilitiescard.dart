@@ -24,7 +24,16 @@ class FacilitiesCard extends StatelessWidget {
             borderRadius: BorderRadius.circular(20)),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: const [Icon(Icons.two_wheeler), Text("Custom")],
+          children: const [
+            Icon(
+              Icons.two_wheeler,
+              color: Colors.white,
+            ),
+            Text(
+              "Custom",
+              style: TextStyle(color: Colors.white),
+            )
+          ],
         ),
       ),
     );

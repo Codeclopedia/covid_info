@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:scoring_app/pages/screens/introductionscreens/introduction.dart';
 import 'package:scoring_app/presets/themes/theme.dart';
+import 'package:scoring_app/services/apicall.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -16,6 +17,7 @@ Future<void> main() async {
 class MyApp extends StatelessWidget {
   MyApp({super.key});
   Themes themes = Get.put(Themes());
+  API datacontroller = Get.put(API());
 
   // This widget is the root of your application.
   @override

@@ -38,6 +38,7 @@ class CovidTestTab extends StatelessWidget {
                       "Coronavirus Test",
                       style: TextStyle(
                           fontWeight: FontWeight.bold,
+                          color: Theme.of(context).primaryColor,
                           fontSize: MediaQuery.of(context).size.width * 0.05),
                     ),
                     SizedBox(
@@ -46,16 +47,16 @@ class CovidTestTab extends StatelessWidget {
                         "Get to know about the location in your city where covid test are going on. It can help many people who need to know the test location in emergency.",
                         overflow: TextOverflow.fade,
                         style: TextStyle(
-                          fontSize: MediaQuery.of(context).size.width * 0.025,
-                        ),
+                            fontSize: MediaQuery.of(context).size.width * 0.025,
+                            color: Colors.grey),
                       ),
                     ),
                   ],
                 ),
               ),
               Icon(
-                Icons.arrow_right,
-                color: Theme.of(context).indicatorColor,
+                Icons.keyboard_arrow_right,
+                color: Colors.grey,
                 size: MediaQuery.of(context).size.width * 0.1,
               )
             ],

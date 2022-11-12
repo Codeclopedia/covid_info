@@ -146,7 +146,7 @@ class _IntroductionScreenState extends State<IntroductionScreen> {
                         alignment: Alignment.bottomCenter,
                         child: GestureDetector(
                           onTap: () {
-                            Get.to(() => const Homepage());
+                            Get.to(() => Homepage());
                           },
                           child: Container(
                             width: MediaQuery.of(context).size.width,

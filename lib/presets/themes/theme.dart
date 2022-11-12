@@ -9,7 +9,7 @@ class Themes extends GetxController {
           scaffoldBackgroundColor: Color.fromARGB(248, 24, 16, 39),
           colorScheme: const ColorScheme.dark(),
           accentColor: Colors.white,
-          primaryColor: Color.fromARGB(248, 24, 16, 39),
+          primaryColor: Colors.white,
           indicatorColor: Color.fromARGB(255, 255, 255, 255),
           iconTheme: IconThemeData(color: Color.fromARGB(255, 185, 45, 3)),
           appBarTheme: AppBarTheme(
@@ -20,7 +20,7 @@ class Themes extends GetxController {
           scaffoldBackgroundColor: Color.fromARGB(250, 255, 255, 255),
           colorScheme: const ColorScheme.light(),
           indicatorColor: Colors.pink,
-          primaryColor: Color.fromARGB(255, 255, 255, 255),
+          primaryColor: Color.fromARGB(248, 24, 16, 39),
           iconTheme: IconThemeData(color: Color.fromARGB(255, 255, 101, 30)),
           appBarTheme: AppBarTheme(
               iconTheme:

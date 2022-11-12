@@ -7,7 +7,7 @@ class Pageline extends StatelessWidget {
   Widget build(BuildContext context) {
     return Icon(
       Icons.horizontal_rule,
-      color: Colors.white,
+      color: Theme.of(context).primaryColor,
       size: MediaQuery.of(context).size.width * 0.1,
     );
   }

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:get/get.dart';
+import 'package:scoring_app/pages/Covidtrackerpage/covidtrackerpage.dart';
 import 'package:scoring_app/presets/appdata.dart';
 import 'package:spring/spring.dart';
 
@@ -7,12 +9,22 @@ class CustomDrawer extends StatelessWidget {
   CustomDrawer({super.key});
 
   final List<Map> draweroptions = [
-    {"title": "World stats", "Icon": Icons.language_outlined},
-    {"title": "News", "Icon": Icons.newspaper_outlined},
-    {"title": "Vaccines", "Icon": Icons.vaccines_outlined},
-    {"title": "Covid test", "Icon": Icons.medication_liquid_outlined},
-    {"title": "About us", "Icon": Icons.group},
-    {"title": "Exit", "Icon": Icons.exit_to_app},
+    {
+      "title": "World stats",
+      "Icon": Icons.language_outlined,
+      "ontap": () {
+        Get.to(() => const CovidTrackerPage());
+      }
+    },
+    {"title": "News", "Icon": Icons.newspaper_outlined, "ontap": () {}},
+    {"title": "Vaccines", "Icon": Icons.vaccines_outlined, "ontap": () {}},
+    {
+      "title": "Covid test",
+      "Icon": Icons.medication_liquid_outlined,
+      "ontap": () {}
+    },
+    {"title": "About us", "Icon": Icons.group, "ontap": () {}},
+    {"title": "Exit", "Icon": Icons.exit_to_app, "ontap": () {}},
   ];
 
   @override
@@ -41,7 +53,7 @@ class CustomDrawer extends StatelessWidget {
                           borderRadius: BorderRadius.circular(15)),
                       child: ListTile(
                         leading: Icon(draweroptions[index]["Icon"]),
-                        onTap: () {},
+                        onTap: draweroptions[index]["ontap"],
                         title: Text(draweroptions[index]["title"]),
                         textColor: Theme.of(context).primaryColor,
                         iconColor: Theme.of(context).primaryColor,

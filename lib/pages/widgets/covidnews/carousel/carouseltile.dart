@@ -63,6 +63,7 @@ class CarouselTile extends StatelessWidget {
                         overflow: TextOverflow.fade,
                         style: TextStyle(
                             fontWeight: FontWeight.bold,
+                            color: Colors.white,
                             fontSize:
                                 MediaQuery.of(context).size.width * 0.035),
                       ),

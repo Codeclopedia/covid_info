@@ -2,7 +2,6 @@
 //
 //     final allnews = allnewsFromJson(jsonString);
 
-import 'package:meta/meta.dart';
 import 'dart:convert';
 
 Allnews allnewsFromJson(String str) => Allnews.fromJson(json.decode(str));

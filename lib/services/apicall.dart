@@ -2,13 +2,17 @@ import 'dart:convert';
 
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
+import 'package:scoring_app/models/Covidtrackerdata.dart';
 import 'package:scoring_app/models/allnewsmodel.dart';
+import 'package:scoring_app/models/statedatamodel.dart';
 import 'package:scoring_app/models/worlddata.dart';
+import 'package:scoring_app/pages/widgets/covidtesttab.dart';
 
 class API extends GetxController {
   final rapidApiKey = '22f2055391msh6b57eefdefddafbp11c465jsn500c21a9cc64';
   late RxList<WorldData> worlddata = <WorldData>[].obs;
   late RxList<News> allnewsdata = <News>[].obs;
+  late RxList<CovidTrackerData> Covidtrackerdata = <CovidTrackerData>[].obs;
 
   worlddataApiCall() async {
     var headers = {
@@ -28,6 +32,29 @@ class API extends GetxController {
     if (response.statusCode == 200) {
       final data = await response.stream.bytesToString();
       worlddata = worldDataFromJson(data).obs;
+    } else {
+      print(response.reasonPhrase);
+    }
+  }
+
+  covidtrackerdatacall() async {
+    var headers = {
+      'X-RapidAPI-Key': '22f2055391msh6b57eefdefddafbp11c465jsn500c21a9cc64',
+      'X-RapidAPI-Host':
+          'vaccovid-coronavirus-vaccine-and-treatment-tracker.p.rapidapi.com'
+    };
+    var request = http.Request(
+        'GET',
+        Uri.parse(
+            'https://vaccovid-coronavirus-vaccine-and-treatment-tracker.p.rapidapi.com/api/npm-covid-data/'));
+
+    request.headers.addAll(headers);
+
+    http.StreamedResponse response = await request.send();
+
+    if (response.statusCode == 200) {
+      var data = await response.stream.bytesToString();
+      Covidtrackerdata = covidTrackerDataFromJson(data).obs;
     } else {
       print(response.reasonPhrase);
     }
@@ -56,11 +83,36 @@ class API extends GetxController {
     }
   }
 
+  getstatesdata(String IsoCode) async {
+    var headers = {
+      'X-RapidAPI-Key': '22f2055391msh6b57eefdefddafbp11c465jsn500c21a9cc64',
+      'X-RapidAPI-Host':
+          'vaccovid-coronavirus-vaccine-and-treatment-tracker.p.rapidapi.com'
+    };
+    var request = http.Request(
+        'GET',
+        Uri.parse(
+            'https://vaccovid-coronavirus-vaccine-and-treatment-tracker.p.rapidapi.com/api/api-covid-data/reports/$IsoCode'));
+
+    request.headers.addAll(headers);
+
+    http.StreamedResponse response = await request.send();
+
+    if (response.statusCode == 200) {
+      var data = await response.stream.bytesToString();
+      List<Statedata> statedata = statedataFromJson(data);
+      return statedata;
+    } else {
+      print(response.reasonPhrase);
+    }
+  }
+
   @override
   void onInit() {
     // TODO: implement onInit
     super.onInit();
     worlddataApiCall();
     latestNewsDataCall();
+    covidtrackerdatacall();
   }
 }

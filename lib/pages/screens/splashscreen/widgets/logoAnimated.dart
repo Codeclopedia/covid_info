@@ -12,7 +12,7 @@ class LogoAnimated extends StatelessWidget {
         child: SizedBox(
             width: MediaQuery.of(context).size.width * 0.4,
             height: MediaQuery.of(context).size.height * 0.3,
-            child: Lottie.asset(
+            child: Image.asset(
               applogo,
               fit: BoxFit.cover,
             )));

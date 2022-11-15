@@ -1,9 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
+import 'package:get/get.dart';
+import 'package:scoring_app/services/datasearch.dart';
 
-class WorlddataSearchTab extends StatelessWidget {
-  const WorlddataSearchTab({super.key});
+class WorlddataSearchTab extends StatefulWidget {
+  WorlddataSearchTab({super.key});
+
+  @override
+  State<WorlddataSearchTab> createState() => _WorlddataSearchTabState();
+}
+
+class _WorlddataSearchTabState extends State<WorlddataSearchTab> {
+  DataSearchController searchController = Get.find();
 
   @override
   Widget build(BuildContext context) {
@@ -17,8 +24,12 @@ class WorlddataSearchTab extends StatelessWidget {
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(15),
             border: Border.all(color: Theme.of(context).primaryColor)),
-        child: const TextField(
-          decoration: InputDecoration(
+        child: TextField(
+          onChanged: (value) {
+
+            searchController.search = value.obs;
+          },
+          decoration: const InputDecoration(
               border: InputBorder.none,
               prefixIcon: Icon(Icons.search),
               hintText: "Search"),

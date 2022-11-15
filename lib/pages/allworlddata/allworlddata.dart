@@ -34,7 +34,7 @@ class Allworlddata extends StatelessWidget {
                   vertical: MediaQuery.of(context).size.height * 0.02),
               child: ListView(
                 children: [
-                  const WorlddataSearchTab(),
+                  WorlddataSearchTab(),
                   AllWorldNewsTab(),
                   CovidHistoryTab(),
                   CovidTracker()

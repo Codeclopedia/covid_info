@@ -66,7 +66,7 @@ class CustomDrawer extends StatelessWidget {
             ],
           ),
           Spring.fadeIn(
-            delay: const Duration(seconds: 1, milliseconds: 100),
+            delay: const Duration(milliseconds: 500),
             child: Column(
               children: [
                 Text(

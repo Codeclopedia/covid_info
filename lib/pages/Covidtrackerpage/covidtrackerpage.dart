@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:scoring_app/pages/allworlddata/widgets/covidtracker.dart';
+import 'package:scoring_app/pages/allworlddata/widgets/worlddatasearchtab.dart';
 
 class CovidTrackerPage extends StatelessWidget {
   const CovidTrackerPage({super.key});
@@ -10,6 +11,7 @@ class CovidTrackerPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: ListView(children: [
+        WorlddataSearchTab(),
         CovidTracker(),
       ]),
     );

@@ -1,10 +1,24 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:scoring_app/pages/widgets/facilitiesCard/facilitiescard.dart';
 
 class Facilities extends StatelessWidget {
-  const Facilities({super.key});
+  Facilities({super.key});
+
+  List<Map> facilitiesdata = [
+    {
+      'Icon': const FaIcon(FontAwesomeIcons.globe),
+      'Title': 'World Data',
+    },
+    {
+      'Icon': const FaIcon(FontAwesomeIcons.hospital),
+      'Title': 'Test reports',
+    },
+    {
+      'Icon': const Icon(Icons.vaccines_outlined),
+      'Title': 'World Data',
+    }
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -13,12 +27,15 @@ class Facilities extends StatelessWidget {
       width: double.infinity,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
-        itemCount: 3,
-        physics: BouncingScrollPhysics(),
+        itemCount: facilitiesdata.length,
+        physics: const BouncingScrollPhysics(),
         padding: EdgeInsets.symmetric(
             horizontal: MediaQuery.of(context).size.width * 0.04),
         itemBuilder: (context, index) {
-          return const FacilitiesCard();
+          return FacilitiesCard(
+            icon: facilitiesdata[index]["Icon"],
+            title: facilitiesdata[index]["Title"],
+          );
         },
       ),
     );

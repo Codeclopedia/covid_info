@@ -3,7 +3,10 @@ import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 
 class FacilitiesCard extends StatelessWidget {
-  const FacilitiesCard({super.key});
+  final Icon icon;
+  final Text title;
+
+  const FacilitiesCard({super.key, required this.icon, required this.title});
 
   @override
   Widget build(BuildContext context) {
@@ -24,13 +27,10 @@ class FacilitiesCard extends StatelessWidget {
             borderRadius: BorderRadius.circular(20)),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: const [
-            Icon(
-              Icons.two_wheeler,
-              color: Colors.white,
-            ),
+          children: [
+            icon,
             Text(
-              "Custom",
+              title.toString(),
               style: TextStyle(color: Colors.white),
             )
           ],

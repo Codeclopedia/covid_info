@@ -30,7 +30,7 @@ class ForegroundMainScreen extends StatelessWidget {
             children: [
               const Pageline(),
               const CovidTestTab(),
-              const Facilities(),
+               Facilities(),
               TrainingVideos(),
               const CovidMapAndStats(),
               CovidNews()

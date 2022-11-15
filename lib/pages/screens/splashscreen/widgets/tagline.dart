@@ -9,28 +9,12 @@ class Tagline extends StatefulWidget {
 }
 
 class _TaglineState extends State<Tagline> {
-  bool showtagline = false;
-  @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-    waitingtime();
-  }
-
-  waitingtime() async {
-    await Future.delayed(const Duration(seconds: 5));
-    setState(() {
-      showtagline = true;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
-    return showtagline
-        ? Positioned(
-            bottom: MediaQuery.of(context).size.height * 0.02,
-            child: Spring.fadeIn(
-                child: const Text("Your all covid related info in one place.")))
-        : Container();
+    return Positioned(
+        bottom: MediaQuery.of(context).size.height * 0.02,
+        child: Spring.fadeIn(
+            delay: Duration(seconds: 3),
+            child: const Text("Your all covid related info in one place.")));
   }
 }

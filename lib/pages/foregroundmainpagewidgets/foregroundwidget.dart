@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:scoring_app/pages/aboutUs/aboutuspage.dart';
 import 'package:scoring_app/pages/foregroundmainpagewidgets/widgets/decorationsearchtab.dart';
 import 'package:scoring_app/presets/appdata.dart';
 
@@ -22,11 +24,11 @@ class ForegroundWidget extends StatelessWidget {
                 GestureDetector(
                   onTap: () {
                     Scaffold.of(context).openDrawer();
-                    final FocusScopeNode currentScope = FocusScope.of(context);
-                    if (!currentScope.hasPrimaryFocus &&
-                        currentScope.hasFocus) {
-                      FocusManager.instance.primaryFocus!.unfocus();
-                    }
+                    // final FocusScopeNode currentScope = FocusScope.of(context);
+                    // if (!currentScope.hasPrimaryFocus &&
+                    //     currentScope.hasFocus) {
+                    //   FocusManager.instance.primaryFocus!.unfocus();
+                    // }
                   },
                   child: Icon(
                     Icons.menu,
@@ -38,10 +40,15 @@ class ForegroundWidget extends StatelessWidget {
                   applogo,
                   scale: MediaQuery.of(context).size.width * 0.004,
                 ),
-                Icon(
-                  Icons.help,
-                  color: Colors.white,
-                  size: MediaQuery.of(context).size.width * 0.07,
+                GestureDetector(
+                  onTap: () {
+                    Get.to(() => const AboutUs());
+                  },
+                  child: Icon(
+                    Icons.help,
+                    color: Colors.white,
+                    size: MediaQuery.of(context).size.width * 0.07,
+                  ),
                 ),
               ],
             ),

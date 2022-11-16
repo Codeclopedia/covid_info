@@ -2,8 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 import 'package:scoring_app/pages/Covidtrackerpage/covidtrackerpage.dart';
+import 'package:scoring_app/pages/newspage/news_page.dart';
 import 'package:scoring_app/presets/appdata.dart';
 import 'package:spring/spring.dart';
+
+import '../../aboutUs/aboutuspage.dart';
 
 class CustomDrawer extends StatelessWidget {
   CustomDrawer({super.key});
@@ -13,17 +16,29 @@ class CustomDrawer extends StatelessWidget {
       "title": "World stats",
       "Icon": Icons.language_outlined,
       "ontap": () {
-        Get.to(() => const CovidTrackerPage());
+        Get.to(() => CovidTrackerPage());
       }
     },
-    {"title": "News", "Icon": Icons.newspaper_outlined, "ontap": () {}},
+    {
+      "title": "News",
+      "Icon": Icons.newspaper_outlined,
+      "ontap": () {
+        Get.to(() => NewsPage());
+      }
+    },
     {"title": "Vaccines", "Icon": Icons.vaccines_outlined, "ontap": () {}},
     {
       "title": "Covid test",
       "Icon": Icons.medication_liquid_outlined,
       "ontap": () {}
     },
-    {"title": "About us", "Icon": Icons.group, "ontap": () {}},
+    {
+      "title": "About us",
+      "Icon": Icons.group,
+      "ontap": () {
+        Get.to(() => const AboutUs());
+      }
+    },
     {"title": "Exit", "Icon": Icons.exit_to_app, "ontap": () {}},
   ];
 

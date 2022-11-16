@@ -7,16 +7,25 @@ class Facilities extends StatelessWidget {
 
   List<Map> facilitiesdata = [
     {
-      'Icon': const FaIcon(FontAwesomeIcons.globe),
+      'Icon': const FaIcon(
+        FontAwesomeIcons.globe,
+        color: Colors.white,
+      ),
       'Title': 'World Data',
     },
     {
-      'Icon': const FaIcon(FontAwesomeIcons.hospital),
+      'Icon': const FaIcon(
+        FontAwesomeIcons.hospital,
+        color: Colors.white,
+      ),
       'Title': 'Test reports',
     },
     {
-      'Icon': const Icon(Icons.vaccines_outlined),
-      'Title': 'World Data',
+      'Icon': const Icon(
+        Icons.vaccines_outlined,
+        color: Colors.white,
+      ),
+      'Title': 'Vaccines',
     }
   ];
 

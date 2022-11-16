@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:lottie/lottie.dart';
 import 'package:scoring_app/pages/backgroundmainscreen/background.dart';
 import 'package:scoring_app/pages/foregroundmainscreen/foregroundmainscreen.dart';
 import 'package:scoring_app/pages/screens/splashscreen/widgets/loadingIndicator.dart';
@@ -26,17 +27,6 @@ class _HomepageState extends State<Homepage> {
     super.initState();
   }
 
-  Widget Customloadingscreen() {
-    return Scaffold(
-      body: Center(
-        child: LoadingIndicator(
-          height: MediaQuery.of(context).size.height * 0.1,
-          width: MediaQuery.of(context).size.width * 0.2,
-        ),
-      ),
-    );
-  }
-
   bool checkdata() {
     return apidata.worlddata.isNotEmpty ||
             apidata.allnewsdata.isNotEmpty ||
@@ -47,26 +37,38 @@ class _HomepageState extends State<Homepage> {
 
   @override
   Widget build(BuildContext context) {
-    return StreamBuilder<bool>(
-        stream: Stream.periodic(const Duration(seconds: 3), (_) {
-          return checkdata();
-        }),
-        builder: (context, snapshot) {
-          if (snapshot.hasData) {
-            if (snapshot.data!) {
-              return Scaffold(
-                  backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-                  drawer: CustomDrawer(),
-                  body: Stack(
-                    children: const [
-                      BackgroundScreen(),
-                      ForegroundMainScreen(),
-                    ],
-                  ));
+    return Scaffold(
+      backgroundColor: Theme.of(context).backgroundColor,
+      drawer: CustomDrawer(),
+      body: StreamBuilder<bool>(
+          stream: Stream.periodic(const Duration(seconds: 3), (_) {
+            return checkdata();
+          }),
+          builder: (context, snapshot) {
+            if (snapshot.hasData) {
+              if (snapshot.data!) {
+                return Stack(
+                  children: const [
+                    BackgroundScreen(),
+                    ForegroundMainScreen(),
+                  ],
+                );
+              }
+              return LoadingIndicator(
+                height: MediaQuery.of(context).size.height * 0.1,
+                width: MediaQuery.of(context).size.width * 0.2,
+              );
             }
-            return Customloadingscreen();
-          }
-          return Container();
-        });
+            return Container(
+              height: double.infinity,
+              width: double.infinity,
+              color: Theme.of(context).backgroundColor,
+              child: SizedBox(
+                  height: MediaQuery.of(context).size.height * 0.1,
+                  width: MediaQuery.of(context).size.width * 0.1,
+                  child: Lottie.asset("assets/lottie/99274-loading.json")),
+            );
+          }),
+    );
   }
 }

@@ -13,8 +13,8 @@ class CustomCarousel extends StatelessWidget {
     return Obx(() => apidata.allnewsdata.isEmpty
         ? const CircularProgressIndicator.adaptive()
         : Padding(
-            padding: EdgeInsets.symmetric(
-                vertical: MediaQuery.of(context).size.height * 0.03),
+            padding:
+                EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.03),
             child: CarouselSlider.builder(
               itemCount: apidata.allnewsdata.length,
               itemBuilder: (Carosuelcontext, index, realIndex) {

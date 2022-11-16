@@ -6,7 +6,7 @@ class CovidMapAndStats extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    DateTime dateToday = new DateTime.now();
+    DateTime dateToday = DateTime.now();
     String date = dateToday.toString().substring(0, 10);
     return Padding(
       padding: EdgeInsets.symmetric(

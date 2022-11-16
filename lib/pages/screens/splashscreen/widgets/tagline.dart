@@ -14,7 +14,7 @@ class _TaglineState extends State<Tagline> {
     return Positioned(
         bottom: MediaQuery.of(context).size.height * 0.02,
         child: Spring.fadeIn(
-            delay: Duration(seconds: 3),
+            delay: const Duration(seconds: 3),
             child: const Text("Your all covid related info in one place.")));
   }
 }

@@ -50,6 +50,7 @@ dependencies:
   flutter_dropdown_alert: ^1.0.6
   shared_preferences: ^2.0.15
   awesome_snackbar_content: ^0.1.0
+  syncfusion_flutter_charts: ^20.3.57
 
 dev_dependencies:
   flutter_test:

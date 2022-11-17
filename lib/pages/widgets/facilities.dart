@@ -4,8 +4,15 @@ import 'package:get/get.dart';
 import 'package:scoring_app/pages/Covidtrackerpage/covidtrackerpage.dart';
 import 'package:scoring_app/pages/widgets/facilitiesCard/facilitiescard.dart';
 
-class Facilities extends StatelessWidget {
+class Facilities extends StatefulWidget {
   Facilities({super.key});
+
+  @override
+  State<Facilities> createState() => _FacilitiesState();
+}
+
+class _FacilitiesState extends State<Facilities> {
+  bool isloading = false;
 
   List<Map> facilitiesdata = [
     {
@@ -48,9 +55,14 @@ class Facilities extends StatelessWidget {
         padding: EdgeInsets.symmetric(
             horizontal: MediaQuery.of(context).size.width * 0.04),
         itemBuilder: (context, index) {
-          return FacilitiesCard(
-            icon: facilitiesdata[index]["Icon"],
-            title: facilitiesdata[index]["Title"],
+          return InkWell(
+            onTap: facilitiesdata[index]["ontap"],
+            child: isloading
+                ? const CircularProgressIndicator.adaptive()
+                : FacilitiesCard(
+                    icon: facilitiesdata[index]["Icon"],
+                    title: facilitiesdata[index]["Title"],
+                  ),
           );
         },
       ),

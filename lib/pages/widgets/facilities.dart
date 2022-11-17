@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:get/get.dart';
+import 'package:scoring_app/pages/Covidtrackerpage/covidtrackerpage.dart';
 import 'package:scoring_app/pages/widgets/facilitiesCard/facilitiescard.dart';
 
 class Facilities extends StatelessWidget {
@@ -12,6 +14,9 @@ class Facilities extends StatelessWidget {
         color: Colors.white,
       ),
       'Title': 'World Data',
+      "ontap": () {
+        Get.to(() => CovidTrackerPage());
+      }
     },
     {
       'Icon': const FaIcon(
@@ -19,6 +24,7 @@ class Facilities extends StatelessWidget {
         color: Colors.white,
       ),
       'Title': 'Test reports',
+      "ontap": () {}
     },
     {
       'Icon': const Icon(
@@ -26,6 +32,7 @@ class Facilities extends StatelessWidget {
         color: Colors.white,
       ),
       'Title': 'Vaccines',
+      "ontap": () {}
     }
   ];
 

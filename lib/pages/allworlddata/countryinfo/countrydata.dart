@@ -4,6 +4,7 @@ import 'package:scoring_app/models/Covidtrackerdata.dart';
 import 'package:scoring_app/pages/allworlddata/countryinfo/widgets/CountrynamingTile.dart';
 import 'package:scoring_app/pages/allworlddata/countryinfo/widgets/countryNewdata.dart';
 import 'package:scoring_app/pages/allworlddata/countryinfo/widgets/countrydetaileddata.dart';
+import 'package:scoring_app/pages/allworlddata/countryinfo/widgets/statesdata.dart';
 
 import '../../../services/apicall.dart';
 
@@ -34,7 +35,10 @@ class Countrydata extends StatelessWidget {
                   CountryDetailedData(
                     countrydata: countrydata,
                   ),
-                  const CountryNewData()
+                  CountryNewData(countrydata: countrydata),
+                  StatesData(
+                    countrydata: countrydata,
+                  )
                 ],
               ),
             ));

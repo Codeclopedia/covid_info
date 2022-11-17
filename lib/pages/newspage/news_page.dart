@@ -72,11 +72,15 @@ class NewsPage extends StatelessWidget {
             padding: EdgeInsets.only(
                 left: MediaQuery.of(context).size.width * 0.05,
                 top: MediaQuery.of(context).size.height * 0.00),
-            child: Text(
-              "Explore",
-              style: TextStyle(
-                  fontSize: MediaQuery.of(context).size.width * 0.08,
-                  fontWeight: FontWeight.bold),
+            child: Shimmer.fromColors(
+              baseColor: Colors.white,
+              highlightColor: Colors.grey,
+              child: Text(
+                "Explore",
+                style: TextStyle(
+                    fontSize: MediaQuery.of(context).size.width * 0.08,
+                    fontWeight: FontWeight.bold),
+              ),
             ),
           ),
           SizedBox(

@@ -12,7 +12,7 @@ A Flutter Application created to help people during covid epidemic or any other 
  
  ## Dependencies Used
  
-   get: ^4.6. /n
+   get: ^4.6.\
   google_fonts: ^3.0.1
   spring: ^2.0.2
   connectivity_plus: ^3.0.2

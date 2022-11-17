@@ -1,6 +1,6 @@
-# scoring_app
+# Covid Info
 
-A new Flutter project.
+A Flutter Application created to help people during covid epidemic or any other epidemic in the future.
 
 ## Getting Started
 

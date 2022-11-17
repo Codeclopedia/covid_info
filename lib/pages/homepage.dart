@@ -29,7 +29,7 @@ class _HomepageState extends State<Homepage> {
 
   bool checkdata() {
     return apidata.worlddata.isNotEmpty ||
-            apidata.allnewsdata.isNotEmpty ||
+            apidata.latestnewsdata.isNotEmpty ||
             apidata.Covidtrackerdata.isNotEmpty
         ? true
         : false;

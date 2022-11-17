@@ -28,7 +28,7 @@ class AllWorldNewsTab extends StatelessWidget {
             child: GridView.builder(
               scrollDirection: Axis.horizontal,
               shrinkWrap: true,
-              itemCount: apidata.allnewsdata.length,
+              itemCount: apidata.latestnewsdata.length,
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 3,
                   childAspectRatio: 0.3,
@@ -37,7 +37,8 @@ class AllWorldNewsTab extends StatelessWidget {
               itemBuilder: (gridviewcontext, index) {
                 return InkWell(
                   onTap: () async {
-                    final Uri uri = Uri.parse(apidata.allnewsdata[index].link);
+                    final Uri uri =
+                        Uri.parse(apidata.latestnewsdata[index].link);
                     await launchUrl(uri);
                   },
                   child: Container(
@@ -54,7 +55,8 @@ class AllWorldNewsTab extends StatelessWidget {
                             width: MediaQuery.of(context).size.width * 0.25,
                             height: MediaQuery.of(context).size.height,
                             child: CachedNetworkImage(
-                              imageUrl: apidata.allnewsdata[index].urlToImage,
+                              imageUrl:
+                                  apidata.latestnewsdata[index].urlToImage,
                               fit: BoxFit.fill,
                             ),
                           ),
@@ -69,7 +71,7 @@ class AllWorldNewsTab extends StatelessWidget {
                         ),
                         Expanded(
                             child: Text(
-                          apidata.allnewsdata[index].title,
+                          apidata.latestnewsdata[index].title,
                           overflow: TextOverflow.fade,
                           style: TextStyle(
                               fontWeight: FontWeight.bold,

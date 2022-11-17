@@ -13,7 +13,8 @@ import 'package:shared_preferences/shared_preferences.dart';
 class API extends GetxController {
   final rapidApiKey = '22f2055391msh6b57eefdefddafbp11c465jsn500c21a9cc64';
   RxList<WorldData> worlddata = <WorldData>[].obs;
-  RxList<News> allnewsdata = <News>[].obs;
+  RxList<News> latestnewsdata = <News>[].obs;
+  RxList<News> extranewsdata = <News>[].obs;
   RxList<CovidTrackerData> Covidtrackerdata = <CovidTrackerData>[].obs;
   RxList<Statedata> statedata = <Statedata>[].obs;
 
@@ -115,8 +116,8 @@ class API extends GetxController {
       if (response.statusCode == 200) {
         var data = await response.stream.bytesToString();
         List<String> listofdata = [];
-        allnewsdata = allnewsFromJson(data).news.obs;
-        allnewsdata.forEach((element) {
+        latestnewsdata = allnewsFromJson(data).news.obs;
+        latestnewsdata.forEach((element) {
           listofdata.add(jsonEncode(element));
         });
         sharedPreferences.setStringList("allnewsData", listofdata);
@@ -126,9 +127,97 @@ class API extends GetxController {
     } catch (error) {
       var Listofdata = sharedPreferences.getStringList("allnewsData");
       Listofdata?.forEach((element) {
-        allnewsdata.add(jsonDecode(element));
+        latestnewsdata.add(jsonDecode(element));
       });
     }
+  }
+
+  HealthNewsDataCall(int Pagenumber) async {
+    SharedPreferences sharedPreferences = await sharedPreferencesinstance;
+    try {
+      var headers = {
+        'X-RapidAPI-Key': rapidApiKey,
+        'X-RapidAPI-Host':
+            'vaccovid-coronavirus-vaccine-and-treatment-tracker.p.rapidapi.com'
+      };
+      var request = http.Request(
+          'GET',
+          Uri.parse(
+              'https://vaccovid-coronavirus-vaccine-and-treatment-tracker.p.rapidapi.com/api/news/get-health-news/$Pagenumber'));
+
+      request.headers.addAll(headers);
+
+      http.StreamedResponse response = await request.send();
+
+      if (response.statusCode == 200) {
+        var data = await response.stream.bytesToString();
+        List<String> listofdata = [];
+        List newdata = allnewsFromJson(data).news.obs;
+        newdata.forEach((element) {
+          extranewsdata.add(element);
+        });
+        extranewsdata.forEach((element) {
+          listofdata.add(jsonEncode(element));
+        });
+        sharedPreferences.setStringList("HealthnewsData", listofdata);
+      } else {
+        print(response.reasonPhrase);
+      }
+    } catch (error) {
+      var Listofdata = sharedPreferences.getStringList("HealthnewsData");
+      Listofdata?.forEach((element) {
+        extranewsdata.add(jsonDecode(element));
+      });
+    }
+  }
+
+  VaccineNewsDataCall(int Pagenumber) async {
+    SharedPreferences sharedPreferences = await sharedPreferencesinstance;
+    try {
+      var headers = {
+        'X-RapidAPI-Key': rapidApiKey,
+        'X-RapidAPI-Host':
+            'vaccovid-coronavirus-vaccine-and-treatment-tracker.p.rapidapi.com'
+      };
+      var request = http.Request(
+          'GET',
+          Uri.parse(
+              'https://vaccovid-coronavirus-vaccine-and-treatment-tracker.p.rapidapi.com/api/news/get-vaccine-news/$Pagenumber'));
+
+      request.headers.addAll(headers);
+
+      http.StreamedResponse response = await request.send();
+      sharedPreferences.remove("VaccinenewsData");
+
+      if (response.statusCode == 200) {
+        var data = await response.stream.bytesToString();
+        List<String> listofdata = [];
+
+        List newdata = allnewsFromJson(data).news.obs;
+        newdata.forEach((element) {
+          extranewsdata.add(element);
+        });
+        extranewsdata.forEach((element) {
+          listofdata.add(jsonEncode(element));
+        });
+        sharedPreferences.setStringList("VaccinenewsData", listofdata);
+      } else {
+        print(response.reasonPhrase);
+      }
+    } catch (error) {
+      var Listofdata = sharedPreferences.getStringList("VaccinenewsData");
+      Listofdata?.forEach((element) {
+        extranewsdata.add(jsonDecode(element));
+      });
+    }
+  }
+
+  ExtranewsData() async {
+    for (int pagenumber = 0; pagenumber <= 5; pagenumber++) {
+      await HealthNewsDataCall(pagenumber);
+      await VaccineNewsDataCall(pagenumber);
+    }
+    return extranewsdata;
   }
 
   getstatesdata(String IsoCode) async {
@@ -177,5 +266,6 @@ class API extends GetxController {
     worlddataApiCall();
     latestNewsDataCall();
     covidtrackerdatacall();
+    ExtranewsData();
   }
 }

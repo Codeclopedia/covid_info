@@ -10,15 +10,15 @@ class CustomCarousel extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Obx(() => apidata.allnewsdata.isEmpty
+    return Obx(() => apidata.latestnewsdata.isEmpty
         ? const CircularProgressIndicator.adaptive()
         : Padding(
             padding:
                 EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.03),
             child: CarouselSlider.builder(
-              itemCount: apidata.allnewsdata.length,
+              itemCount: apidata.latestnewsdata.length,
               itemBuilder: (Carosuelcontext, index, realIndex) {
-                return CarouselTile(data: apidata.allnewsdata[index]);
+                return CarouselTile(data: apidata.latestnewsdata[index]);
               },
               options: CarouselOptions(
                 enlargeCenterPage: true,

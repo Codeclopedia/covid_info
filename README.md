@@ -8,7 +8,15 @@ A Flutter Application created to help people during covid epidemic or any other 
  
  ## Features
  
- 
+ Global case count.\
+Case, death and recovery count of each country\
+Total tests and infection probability of each country\
+News updates related to vaccine developement\
+Info, symptoms, precautions and myths of the virus\
+Setting a default country\
+
+
+The UI is inspired by Dribbble\
  
  ## Dependencies Used
  

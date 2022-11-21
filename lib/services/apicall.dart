@@ -213,10 +213,11 @@ class API extends GetxController {
   }
 
   ExtranewsData() async {
-    for (int pagenumber = 0; pagenumber <= 5; pagenumber++) {
+    for (int pagenumber = 0; pagenumber <= 2; pagenumber++) {
       await HealthNewsDataCall(pagenumber);
       await VaccineNewsDataCall(pagenumber);
     }
+    print(extranewsdata);
     return extranewsdata;
   }
 
@@ -266,6 +267,5 @@ class API extends GetxController {
     worlddataApiCall();
     latestNewsDataCall();
     covidtrackerdatacall();
-    ExtranewsData();
   }
 }

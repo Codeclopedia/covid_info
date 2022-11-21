@@ -61,7 +61,8 @@ class _StatesDataState extends State<StatesData> {
                             width: MediaQuery.of(context).size.width,
                             decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(15),
-                                border: Border.all(color: Colors.white)),
+                                border: Border.all(
+                                    color: Theme.of(context).primaryColor)),
                             child: Padding(
                               padding: EdgeInsets.symmetric(
                                   horizontal:

@@ -115,8 +115,8 @@ class NewsPage extends StatelessWidget {
               },
             ),
           ),
-          StreamBuilder(
-            stream: apidata.extranewsdata.stream,
+          FutureBuilder(
+            future: apidata.ExtranewsData(),
             builder: (streambuildercontext, snapshot) {
               if (snapshot.hasData) {
                 return ListView.builder(
@@ -127,8 +127,6 @@ class NewsPage extends StatelessWidget {
                   physics: const NeverScrollableScrollPhysics(),
                   scrollDirection: Axis.vertical,
                   itemBuilder: (context, index) {
-                    print(
-                        " extra length at function call: ${apidata.extranewsdata.length}");
                     try {
                       return Padding(
                         padding: EdgeInsets.symmetric(
@@ -273,22 +271,8 @@ class NewsPage extends StatelessWidget {
                   highlightColor: Colors.white,
                   baseColor: Colors.grey,
                   child: Container(
-                    child: Row(
-                      children: [
-                        Container(
-                          height: 100,
-                          width: 100,
-                        ),
-                        Column(
-                          children: [
-                            Container(
-                              height: 50,
-                              width: 200,
-                            )
-                          ],
-                        )
-                      ],
-                    ),
+                    height: MediaQuery.of(context).size.height * 0.13,
+                    width: MediaQuery.of(context).size.width,
                   ));
             },
           )

@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
@@ -39,7 +41,13 @@ class CustomDrawer extends StatelessWidget {
         Get.to(() => const AboutUs());
       }
     },
-    {"title": "Exit", "Icon": Icons.exit_to_app, "ontap": () {}},
+    {
+      "title": "Exit",
+      "Icon": Icons.exit_to_app,
+      "ontap": () {
+        exit(1);
+      }
+    },
   ];
 
   @override

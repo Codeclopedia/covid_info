@@ -15,11 +15,15 @@ class CountryDetailedDataTile extends StatelessWidget {
         child: RichText(
           text: TextSpan(
             text: "$title : ",
-            style: const TextStyle(fontWeight: FontWeight.bold),
+            style: TextStyle(
+                fontWeight: FontWeight.bold,
+                color: Theme.of(context).primaryColor),
             children: <TextSpan>[
               TextSpan(
                   text: data,
-                  style: const TextStyle(fontWeight: FontWeight.normal)),
+                  style: TextStyle(
+                      fontWeight: FontWeight.normal,
+                      color: Theme.of(context).primaryColor)),
             ],
           ),
         ));

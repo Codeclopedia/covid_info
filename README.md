@@ -6,6 +6,11 @@ A Flutter Application created to help people during covid epidemic or any other 
  
  Covid Info is an app made with Flutter framework to provide worldwide information related to Covid-19 pandemic. The api used for the data can be [found here](https://rapidapi.com/vaccovidlive-vaccovidlive-default/api/vaccovid-coronavirus-vaccine-and-treatment-tracker/). The app is currently under development stage and will be released soon on Playstore and app store.
  
+ ## App visual
+
+
+https://user-images.githubusercontent.com/88575762/203727008-0b8749e0-1032-490c-9690-fe3e00925bad.mp4
+ 
  ## Features
  
  Global case count.\
@@ -40,9 +45,5 @@ The UI is inspired by Dribbble
   vertical_barchart: ^2.0.0+2\
   
   
-## App visual
-
-
-https://user-images.githubusercontent.com/88575762/203727008-0b8749e0-1032-490c-9690-fe3e00925bad.mp4
 
 

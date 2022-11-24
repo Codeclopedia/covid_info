@@ -7,7 +7,7 @@ A Flutter Application created to help people during covid epidemic or any other 
  Covid Info is an app made with Flutter framework to provide worldwide information related to Covid-19 pandemic. The api used for the data can be [found here](https://rapidapi.com/vaccovidlive-vaccovidlive-default/api/vaccovid-coronavirus-vaccine-and-treatment-tracker/). The app is currently under development stage and will be released soon on Playstore and app store.
  
  ## Contact me here
- 	https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white(joshi.chetan.work@gmail.com)
+ 	https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white
  
  ## App visual
 

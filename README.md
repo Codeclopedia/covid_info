@@ -38,3 +38,11 @@ The UI is inspired by Dribbble
   shimmer: ^2.0.0\
   graphic: ^1.0.0\
   vertical_barchart: ^2.0.0+2\
+  
+  
+## App visual
+
+
+https://user-images.githubusercontent.com/88575762/203727008-0b8749e0-1032-490c-9690-fe3e00925bad.mp4
+
+
